@@ -1,0 +1,506 @@
+* {
+  margin: 0 !important;
+  padding: 0 !important;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  background-color: #111112 !important;
+  font-family: Hermit, sans-serif;
+  font-variant-caps: normal;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+}
+
+#header {
+  top:0px;
+  width: 100vw;
+  border-bottom: 1px rgba(255, 255, 255, 0.148) solid;
+  height: 4rem !important;
+  padding: 5px 20px !important ;
+  box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+}
+
+a > span, button > span{
+  color:#7450ac;
+  font-size: 28px !important;
+  box-shadow: 400;
+
+}
+.btn-sair{
+  display: flex !important;
+  gap: 5px;
+}
+.busca:hover{
+  opacity: 0.8;
+}
+.sair:hover{
+  opacity: 0.8;
+}
+.inicio:hover{
+  opacity: 0.8;
+}
+.biblioteca:hover{
+  opacity: 0.8;
+}
+
+.logo {
+  font-size: 28px;
+  color: white;
+  display: inline-block;
+}
+
+.sair {
+  display: inline-block;
+  margin: 10px;
+}
+
+button{
+  background: none;
+  border: none;
+}
+
+/*Menu de acesso as paginas*/
+.biblioteca-name, .inicio-name{
+  font-size: 16px !important;
+  color: rgba(128, 128, 128, 0.793) !important;
+}
+.biblioteca > a, .inicio > a {
+  display: flex !important;
+  align-items: center !important;
+  gap:2px;
+} 
+
+#header_main{
+  background-color: #0a0a0b !important;
+  display:flex;
+  align-items: center;
+  justify-content: center !important;
+  height: 3rem !important;
+  gap: 5vh;
+  margin-top: 4rem !important;
+}
+/*Configurações do modal e da barra de rodape do site*/
+.barra_footer {
+  position: fixed !important;
+  bottom: 0px !important;
+  left: 0px !important;
+  background-color: black;
+  height: 70px;
+  width: 100vw;
+  position: fixed;
+  padding: 8px 15px !important;
+}
+
+#Modal {
+  height: 100vh !important;
+  width: 100vw !important;
+  background-color:  #111112 !important; 
+}
+
+.player{
+display: flex;
+align-items: center;
+justify-content: space-between;
+margin: 0 5% !important;
+}
+
+.modal-header > a,.modal-header > button  {
+margin: 10px !important;
+}
+
+       
+#music_yt{
+  margin-top: 80px !important;
+}
+
+/*botoes do player*/
+.botoes> a> img{
+  width: 80px;
+  margin: 40px 0px !important;
+}
+
+.botoes {
+  display: flex !important;
+  justify-content: center !important;
+}
+.name-music{
+  display: flex !important;
+  flex-direction: column;
+  justify-content: center !important;
+  align-items: center;
+}
+
+.modal-footer> .button{
+  background: none !important;
+  border: none !important;
+  padding: 5px !important;
+  margin: 10px !important;
+}
+.modal-footer{
+  border-top: none !important;
+}
+
+.modal-footer> .button:hover{
+  opacity: 0.8 !important;
+  background-color: none !important;
+  color:white !important;
+}
+
+.name-music > h1{
+  font-size: 28px;
+  color: aliceblue;
+}
+.name-music > h2{
+  font-size: 22px;
+  color: rgba(58, 56, 56, 0.532);
+}
+/* Daqui pra cima tudo ok*/
+/* sessao de adicionar as musicas que vai ficar oculto*/
+
+.container-fluid {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.box-form {
+  margin: 10px;
+  display: none;
+}
+
+.item>select,
+.item>input {
+  margin: 10px;
+  font-weight: 300;
+  width: 270px;
+}
+
+.item>select:focus,
+.item>input:focus {
+  border: 2px solid gray !important;
+  outline: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.item>select {
+  width: 150px;
+}
+
+.item>select,
+.item>input {
+  display: block;
+  background-color: black;
+  height: 45px;
+  font-size: 15px;
+  padding-left: 5px;
+  color: gray;
+  border: none;
+  border-radius: 5px;
+  padding: 5px !important;
+}
+
+.responsivo {
+  display: flex !important;
+  flex-direction: row;
+  align-items: center;
+}
+
+.item>label {
+  margin: 0 10px;
+  display: block;
+  color: gray;
+}
+
+.item1,
+.item2,
+.item3 {
+  display: inline-block !important;
+  margin: 10px !important;
+}
+
+form#salva-dados {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  gap: 1px;
+}
+
+button#salvarLink {
+  background-color: #7450ac;
+  font-size: 22px;
+  border: 1px solid #A881E6;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  color: white !important;
+  padding-top: 7px;
+  margin-top: 20px !important;
+}
+
+button#salvarLink:hover {
+  color: #ffffff;
+  background-color: #A881E6;
+}
+
+#salvarLink > span{
+  font-size: 20px !important;
+  color: white;
+  margin-top: 2px;
+  margin-right: 5px;
+}
+
+/* Barra de rolagem lateral */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #2c2c31;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #9e9ea0;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar{
+  display: none !important;
+}
+
+/* CSS do componente favoritos da tela */
+
+.favorito {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: black;
+  padding: 10px 20px !important;
+  margin: 10px !important;
+  border-radius: 5px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.nome-favorito {
+  display: flex;
+  overflow: hidden;
+  white-space: nowrap;
+  align-items: center !important;
+  gap: 3px;
+
+}
+.favorito:hover{
+opacity: 0.9;
+}
+.nomes> label:hover{
+  opacity: 0.5;
+  }
+
+.nome-favorito>label, #nomeMusicBarra {
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 300;
+  color: white;
+  margin: 1px !important;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis !important;
+  padding: 0 10px !important;
+}
+
+p#generoMusicBarra{
+  padding: 0 15px !important; 
+  margin-bottom: 10x !important;
+}
+.nome-favorito>button {
+  background-color: #1e1e2042;
+  border-radius: 5px;
+  min-width: 50px !important;
+  font-size: 32px;
+  height: 47px !important;
+}
+.nome-favorito>button>span{
+  padding-top: 7px !important;
+  font-size: 30px  !important;
+  color: #c4b7d9;
+}
+.nome-favorito>button>span:hover {
+  color: #7450ac;
+  opacity: 0.8;
+  text-decoration: none;
+}
+.nomes{
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center !important;
+}
+.remover,
+.secao-favorito {
+  display: flex !important;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+  gap: 10px;
+}
+
+.secao-favorito {
+  width: 50vw;
+}
+
+#botaoLabel:hover{
+  opacity: 0.6;
+
+}
+
+/* Mudando checked do input */
+
+.remover>div>h3 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 3px 0 !important;
+  font-size: 15px !important;
+  background-color: #4e363650;
+  color: #6e84f250;
+  padding: 0px 5px !important;
+  border-radius: 30px;
+}
+
+.remover>div>h3>span {
+  font-size: 13px !important;
+  padding: 2px !important;
+}
+
+.remover>button {
+  color: #7450ac;
+  background-color: black;
+  border: none;
+}
+
+.remover>button:hover {
+  color: red;
+}
+
+/*tela de biblioteca*/
+
+#bilioteca-open{
+display: block;
+text-overflow: ellipsis;
+position: absolute;
+width: 100vw !important;
+height: 100vh !important;
+background-color: #111112 !important;
+top: 122px;
+}
+
+#exibe-bio{
+  margin: 20px !important;
+  display: flex;
+  flex-direction: row !important;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 20px;
+  background-color: #111112 !important;
+  padding-bottom: 30px !important;
+}
+
+.caixa-box{
+display: flex;
+flex-direction: column;
+width: 200px;
+height: 200px;
+background-color: black;
+border-radius: 10px;
+overflow:hidden;
+}
+
+.caixa-box > button{
+  color: white !important;
+  padding: 5px !important;
+  text-overflow: ellipsis !important;
+
+}
+
+.caixa-box >span{
+  width: 195px;
+  height: 180px;
+  font-size: 150px;
+  text-align: center;
+  color: gray;
+}
+
+/* Resposividade do site*/
+
+@media (max-width: 630px) {
+  .container {
+    margin: 5 !important;
+    padding: 5 !important;
+  }
+
+  form#salva-dados {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center;
+  }
+
+  .item2,
+  .item3 {
+    display: inline !important;
+  }
+
+  .item1>input {
+    width: 80vw !important;
+  }
+
+  .item2>input,
+  .item2>label {
+    display: block !important;
+    width: 42vw !important;
+  }
+
+  .item3>select,
+  .item3>label {
+    display: block !important;
+    width: 25vw !important;
+  }
+  .player{
+    margin: 0 3% !important;
+  }
+  #header_main{
+    gap:10px !important;
+  }
+
+}
+
+@media (max-width: 780px) {
+  form#salva-dados {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+  .item1>input {
+    width: 80vw !important;
+  }
+  .player{
+    margin: 0 3% !important;
+  }
+
+}
+

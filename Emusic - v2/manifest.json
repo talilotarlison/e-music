@@ -1,0 +1,43 @@
+{
+  "name": "E-music",
+  "short_name": "E-music",
+  "description": "E-music é um app para ouvir suass musicas favoritas.",
+  "start_url": "index.html",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "icons": [
+    {
+      "src": "assets/img/icon/android-launchericon-48-48.png",
+      "type": "image/png",
+      "sizes": "48x48"
+    },
+    {
+      "src": "assets/img/icon/android-launchericon-72-72.png",
+      "type": "image/png",
+      "sizes": "72x72"
+    },
+    {
+      "src": "assets/img/icon/android-launchericon-96-96.png",
+      "type": "image/png",
+      "sizes": "96x96"
+    },
+    {
+      "src": "assets/img/icon/android-launchericon-144-144.png",
+      "type": "image/png",
+      "sizes": "144x144"
+    },
+    {
+      "src": "assets/img/icon/android-launchericon-192-192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "assets/img/icon/android-launchericon-512-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ]
+}

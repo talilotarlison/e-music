@@ -1,0 +1,169 @@
+/* CSS da pagina de login e cadastro do site */
+
+* {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: Hermit, sans-serif;
+  font-variant-caps: normal;
+  background-color: #111112;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  height: 100%;
+  width: 100%;
+}
+
+label {
+  color: #7450ac;
+}
+
+label,
+input {
+  display: block;
+  margin: 10px;
+  font-weight: 300;
+  width: 350px;
+}
+
+
+input {
+  background-color: black;
+  height: 45px;
+  font-size: 15px;
+  padding-left: 5px;
+  color: gray;
+  border: none;
+  border-radius: 5px;
+
+}
+
+input::placeholder {
+  color: #afabb6;
+  font-size: 15px;
+  padding-left: 5px;
+}
+
+form {
+  background-color: #17171a;
+  border: solid 1px #afabb6;
+  border-radius: 10px;
+  padding: 45px 10px;
+}
+
+.botao {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  align-items: center;
+}
+
+.recuperar {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+button {
+  margin: 5px;
+  text-align: center;
+}
+
+.contener {
+  width: 95vw;
+  height: 95vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+img {
+  width: 100px;
+}
+
+.logo {
+  text-align: center;
+}
+
+h1>span {
+  color: #523480;
+  margin-top: 2px;
+  margin-right: 5px;
+}
+
+h1,
+h2 {
+  color: #fbf9fe !important;
+  font-size: 18px;
+  padding: 5px;
+  margin: 5px;
+}
+
+h1 {
+  color: #fbf9fe;
+  font-size: 25px;
+}
+
+a {
+  color: #7450ac;
+  margin: 20px;
+}
+
+a:hover {
+  color: #A881E6;
+  opacity: 0.7;
+}
+
+input:focus,
+select:focus {
+  color: gray;
+  font-size: 15px;
+  padding-left: 5px;
+  border: 1px solid #A881E6;
+  outline: 0;
+}
+
+/* Configuração do botao da pagina, gerado apartir do site -> https://codebeautify.org/html-button-generator */
+
+button {
+  color: #ffffff;
+  background-color: #7450ac;
+  font-size: 19px;
+  border: 1px solid #A881E6;
+  padding: 10px 30px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+button:hover {
+  color: #ffffff;
+  background-color: #A881E6;
+}
+
+.botao>a#Cadastro {
+  background-color: #ffffff;
+  color: #7450ac;
+  text-decoration: none;
+  font-size: 19px;
+  padding: 10px 30px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.botao>a#Cadastro:hover {
+  opacity: 0.5;
+  background-color: #f3f1f1;
+
+}
+
+.erro {
+  color: red;
+  text-align: center;
+}

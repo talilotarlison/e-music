@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<!--Header da pagina login-->
+<head>
+<!--Manifesto Web App-->
+<link rel="manifest" href="manifest.json">
+
+<!--Tags metadados e tags links de fontes e icones do google, tambem css local da pgaina -->
+  <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon" />
+  <meta name="keywords" content="music, video, login, metatag, html" />
+  <meta http-equiv="content-language" content="pt-br" />
+  <meta name="author" content="Talilo" />
+  <meta name="description" content="Esta é a pagina de login da E-music">
+  <meta name="robots" content="noindex" />
+  <meta name="robots" content="nofollow" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Fazer Login</title>
+  <link href="assets/css/style.css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,100,0,0" />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+</head>
+<!--Body da pagina login-->
+<body>
+<!--Contener de login da pagina-->
+  <div class="contener">
+    <form id="some-form">
+      <div class="logo">
+        <h1><span class="material-symbols-outlined">
+          play_circle
+          </span>E-music</h1>
+        <h2>Fazer login</h2>
+      </div>
+      <div>
+        <label for="email">E-mail:</label>
+        <input autocomplete="off" autofocus id="email" type="text" placeholder="Digite seu email">
+      </div>
+      <div>
+        <label for="senha">Senha:</label>
+        <input id="senha" autocomplete="off" type="password" placeholder="Digite sua senha">
+        <div class="erro"></div>
+      </div>
+      <div class="botao">
+        <a href="./cadastro.html" id="Cadastro" class="cadastro">Criar conta </a>
+        <button id="botao">Entrar</button>
+      </div>
+      <div class="recuperar">
+        <a href="#">Esqueceu a senha clique aqui!</a>
+      </div>
+    </form>
+  </div>
+  <!--Scripts da da pagina Login-->
+  <script src="javascrip.js"></script>
+  <script src="assets/js/script.js"></script>
+  <script src="assets/js/login-home.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
+  <script type="module">
+
+    // Fubção de criptografia das senha e emails usando cripytoJS 
+    function criptografia(value = "") {
+
+      // INIT
+      var myString = `"${value}"`
+      var myPassword = "myPassword";
+
+      // PROCESS
+      var encrypted = CryptoJS.AES.encrypt(myString, myPassword);
+      var decrypted = CryptoJS.AES.decrypt(encrypted, myPassword);
+      // console.log(encrypted.toString());
+      return decrypted.toString();
+      // console.log(decrypted.toString(CryptoJS.enc.Utf8));
+
+    }
+
+    // Pegando valores no html da pagina login
+    var inputEmail = document.getElementById("email");
+    var inputSenha = document.getElementById("senha");
+    var botao = document.getElementById("botao");
+    const erro = document.querySelector(".erro");
+
+
+    // Uso do Firebase
+
+    // Import the functions you need from the SDKs you need
+    import {initializeApp} from "https://www.gstatic.com/firebasejs/10.0.0/firebase-app.js";
+    import {getAnalytics} from "https://www.gstatic.com/firebasejs/10.0.0/firebase-analytics.js";
+    import {getFirestore, collection, getDocs, addDoc, doc} from "https://www.gstatic.com/firebasejs/10.0.0/firebase-firestore.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyAArmvLucPzXDJL2G-9CMnFK5uNXJDVkN0",
+      authDomain: "bookmarks-af892.firebaseapp.com",
+      projectId: "bookmarks-af892",
+      storageBucket: "bookmarks-af892.appspot.com",
+      messagingSenderId: "167269874777",
+      appId: "1:167269874777:web:ce97025a0e3775ef264548",
+      measurementId: "G-40C9NHKXDG"
+    };
+
+    // Initialize Firebase
+    async function carregarDados(){
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+    const db = getFirestore(app);
+
+    //Pegar dados do Firebase
+
+    const querySnapshot = await getDocs(collection(db, "login"));
+
+    querySnapshot.forEach((doc) => {
+      // console.log(doc.data().nome);
+      // LINK DO ARTIGO DE COMO PEGAR EVENTO DE CLICK DO BOTAO COM JS
+      // https://www.freecodecamp.org/portuguese/news/tutorial-sobre-button-onclick-em-html-e-evento-de-clique-em-javascript/
+
+      // TOKEN CRIADO ALEATORIAMENTE PARA SALVAR NO LOCAL STORAGE PARA GERENCIAR VALIDADE DE LOGIN DO USUARIO
+      const token = (Math.random().toString(16).substr(2) + Math.random().toString(16).substr(2));
+      // Evento do botao login usando dados do banco Firebase para validar
+      botao.addEventListener("click", function validarUser() {
+        const homePage = "./assets/pages/home.html"
+        // Criptografia dos dados de senha e email do usuario
+        var emailAcesso = criptografia(inputEmail.value);
+        var senhaAcesso = criptografia(inputSenha.value);
+        // console.log(senhaAcesso);
+        // console.log(emailAcesso);
+
+        if (emailAcesso === doc.data().email && senhaAcesso === doc.data().senha) {
+          localStorage.setItem('tokenlogin', token);
+          setTimeout(() => {
+            // console.log("Clicou redirecionado para pagina home");
+            window.location.replace(homePage);
+
+          }, 1000)
+        } else {
+          // console.log("Deu errado não fez login");
+          erro.textContent = "Email ou Senha estão incorreto."
+          inputEmail.focus();
+          inputEmail.style.border = " solid 1px red";
+          setTimeout(() => {
+            inputSenha.style.border = " solid 1px red";
+          }, 1000)
+
+        }
+
+      })
+
+    });
+  }
+window.onload = carregarDados();
+  </script>
+</body>
+
+</html>
